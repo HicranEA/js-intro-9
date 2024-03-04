@@ -12,7 +12,7 @@ for(let i = 100; i >= 0; i--) {
     console.log(i);
 }
 
-// Output all the even numbers from 0 to 50 (both inclusive) -> 2 4 6 8 …. 50
+// Output all the even numbers from 0 to 50 (both inclusive) -> 0 2 4 6 8 …. 50
 /*
 start: 0
 end: 50
@@ -102,16 +102,40 @@ r1 r2
 4, 8    -> 4 5 6 7 8
 5, 5    -> 5
 */
-const {generateRandomNumber} = require('../utils/MathHelper.js');
 
 let r1 = generateRandomNumber(1, 10);
 let r2 = generateRandomNumber(1, 10);
-let min = Math.min(r1, r2);
-let max = Math.max(r1, r2);
 
-console.log(r1, r2);
+console.log(`r1 is ${r1}, and r2 is ${r2}`);
 
-for (let i = min; i <= max; i++ ){
-     console.log(i);
+for(let i = Math.min(r1, r2); i <= Math.max(r1, r2); i++) {
+    console.log(i);
 }
 
+
+/*
+Generate a random number bt 1 to 10 (both inclusive
+Find the product of all the numbers starting from 1 to randomly generated random
+
+5       -> 1 * 2 * 3 * 4 * 5 -> 120
+6       -> 1 * 2 * 3 * 4 * 5 * 6 -> 720
+3       -> 1 * 2 * 3 -> 6
+*/
+
+let ran = generateRandomNumber(1, 10);
+
+console.log('Random number is =', ran); 
+
+let result = 1;
+
+for(let i = 1; i <= ran; i++) { 
+    result *= i;
+}
+
+console.log(result); // 120
+
+
+// Infinite loop
+for( ; ; ) {
+    console.log('TechGlobal Infinite times')
+}
