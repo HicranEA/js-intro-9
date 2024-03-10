@@ -5,7 +5,7 @@ console.log(numbers.includes(50)); // false
 
 
 numbers.indexOf(5); // 0
-numbers.lastIndexOf(5); // 2
+numbers.lastIndexOf(5); // 8
 
 numbers.indexOf(10); // 1
 numbers.lastIndexOf(10); // 3

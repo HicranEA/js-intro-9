@@ -70,7 +70,7 @@ const {generateRandomNumber} = require('../utils/MathHelper.js');
 let rdNum = generateRandomNumber(1, 10);
 let factNum = 1;
 
-for (let i = rdNum; i >=1; i--){
+for (let i = rdNum; i > 1; i--){
     factNum *= i;
 }
 
@@ -174,22 +174,18 @@ strings, ignoring cases.
 */
 
 const objectsArr = ['Pen', 'notebook', 'Book', 'paper', 'bag', 'pencil', 'Ruler'];
-console.log(objectsArr);
+
 
 let sumStartBP = 0;
-for(let i = 0; i < objectsArr.length; i++){
-    if(objectsArr[i][0].toLowerCase() === 'b' || objectsArr[i][0].toLowerCase() === 'p')
-    sumStartBP++;
-    } 
-
-console.log(`Elements starting with 'B' or 'P' = ${sumStartBP}`);
-
 let sumBookPen = 0;
+
 for(let i = 0; i < objectsArr.length; i++){
-    if(objectsArr[i].toLowerCase().includes('book') || objectsArr[i].toLowerCase().includes('pen'))
-    sumBookPen++;
+    if(objectsArr[i][0].toLowerCase() === 'b' || objectsArr[i][0].toLowerCase() === 'p') sumStartBP++;
+    if(objectsArr[i].toLowerCase().includes('book') || objectsArr[i].toLowerCase().includes('pen')) sumBookPen++;
 }
-   
+
+console.log(objectsArr);
+console.log(`Elements starting with 'B' or 'P' = ${sumStartBP}`);  
 console.log(`Elements having 'book' or 'pen' = ${sumBookPen}`);
 
 // Task - 13
@@ -265,10 +261,9 @@ firstDuplicate([ 'foo', 'abc', '123', 'bar’ ])  -> -1
 */
 
 function firstDuplicate(arr1){
-    for(let i = 0; i < arr1.length; i++)
-       if(arr1.indexOf(arr1[i]) !== arr1.lastIndexOf(arr1[i])) return arr1[i];
+    for(const num of arr1)
+       if(arr1.indexOf(num) !== arr1.lastIndexOf(num)) return num;
        return -1;
-
 }     
 
 console.log(firstDuplicate([ 3, 7, 10, 0, 3, 10 ]));
@@ -292,12 +287,12 @@ getDuplicates([ 'foo', '12' , 12, 'bar', 'a' ]) -> []
 */
 
 function getDuplicates(arr2){
-    const arr3 = [];
-    for(let i = 0; i < arr2.length; i++){
-    if(arr2.indexOf(arr2[i]) !== arr2.lastIndexOf(arr2[i])){
-        if (!arr3.includes(arr2[i])) arr3.push(arr2[i]);
-        }
+    let arr3 = [];
+
+    for(const element of arr2){
+    if((arr2.indexOf(element) !== arr2.lastIndexOf(element)) && !(arr3.includes(element))) arr3.push(element);
     }
+
     return arr3;
 }
 
@@ -321,17 +316,14 @@ reverseStringWords("    ")  -> ""
 */
 
 function reverseStringWords(str){
-    const strArray = str.split(' ');
-    let reversedStr = "";
+    let strArray = str.trim().split(' ');
+  
     for (let i = 0; i < strArray.length; i++){
-        if (i > 0 && i < strArray.length) reversedStr = reversedStr.concat(" ");
-        for (let j = strArray[i].length - 1; j >= 0; j--){
-        reversedStr =  (reversedStr.concat(strArray[i][j]));
-        } 
-    }
-    return reversedStr;   
+        strArray[i] = strArray[i].split('').reverse().join('');
+      } 
+    return strArray.join(' '); 
 }
-
+     
 console.log(reverseStringWords("Hello World"));
 console.log(reverseStringWords("I like JavaScript")); 
 console.log(reverseStringWords("Hello"));
@@ -353,12 +345,14 @@ getEvens(3, 3) -> []
 */
 
 function getEvens(num1, num2){
-    const arrEven = [];
-    let min = Math.min(num1, num2)
-    let max = Math.max(num1, num2)
-    for(let i = min; i <= max; i++){
+    let arrEven = [];
+    let start = Math.min(num1, num2);
+    let end = Math.max(num1, num2);
+
+    for(let i = start; i <= end; i++){
         if(i % 2 === 0) arrEven.push(i);
     }
+
     return arrEven;
 }
 
@@ -382,18 +376,16 @@ getMultipleOf5(2, 4) -> [ ]
 */
 
 function getMultipleOf5(num1, num2){
-    const arrDiv5 = [];
-    if(num1 <= num2){
-       for(let i = num1; i <= num2; i++){ 
+    let arrDiv5 = [];
+    let start = Math.min(num1, num2);
+    let end = Math.max(num1, num2);
+   
+
+    for(let i = start; i <= end; i++){ 
             if(i % 5 === 0) arrDiv5.push(i);
-             }
-    }     
-    else if(num1 > num2){
-        for(let i = num1; i >= num2; i--){
-            if(i % 5 === 0) arrDiv5.push(i);
-            }
-    }           
-    return arrDiv5;
+        }
+
+    return num1 > num2 ? arrDiv5.reverse() : arrDiv5;
 }
 
 console.log(getMultipleOf5(3, 17));
@@ -420,20 +412,23 @@ fizzBuzz(9, 6) -> "Fizz | 7 | 8 | Fizz"
 */
 
 function fizzBuzz(num1, num2){
-    min = Math.min(num1, num2);
-    max = Math.max(num1, num2);
-    const strArray = [];
-    for(let i = min; i <= max; i++){
+    let strArray = [];
+    let start = Math.min(num1, num2);
+    let end = Math.max(num1, num2);
+    
+
+    for(let i = start; i <= end; i++){
         if(i % 15 === 0)   strArray.push("FizzBuzz");
         else if(i % 5 === 0)  strArray.push("Buzz");
         else if (i % 3 === 0)  strArray.push("Fizz");
         else strArray.push(i);
     }
+
     let str = strArray.join(' | ');
-   return str;
+    return str;
 }
 
 console.log(fizzBuzz(13, 18));
 console.log(fizzBuzz(12, 5));
-console.log(fizzBuzz(5, 5));
-console.log(fizzBuzz(9, 6));
+console.log(fizzBuzz(15, 15));
+console.log(fizzBuzz(9, 6))
