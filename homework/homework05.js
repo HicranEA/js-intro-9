@@ -8,12 +8,22 @@ countPos([-23, -4, 0, 2, 5, 90, 123])  -> 4
 countPos([0, -1, -2, -3])  -> 0
 */
 
-function countPos(arrayNum) {
+// Solution with loop
+function countPos(array) {
     let count = 0;
-    for(const number of arrayNum){
+    for(const number of array){
         if(number > 0) count++;
     }
     return count;
+}
+
+// Solution with reduce() method
+function countPos(array) {
+    return array.reduce((count, number) => number > 0 ? count + 1 : count, 0);
+}
+ //Function with arrow function
+const countPos = (array) => {
+    return array.reduce((count, number) => number > 0 ? count + 1 : count, 0);
 }
 
 console.log(countPos([-45, 0, 0, 34, 5, 67])); 
@@ -31,7 +41,7 @@ countA("QA stands for Quality Assurance")  -> 5
 countA("Cypress")  -> 0
 */
 
-function countA(str) {
+const countA = (str) => {
     let count = 0;
     let strA = str.toUpperCase();
     for(let i = 0; i < strA.length; i++) {
@@ -56,7 +66,7 @@ countVowels("JavaScript is fun")  -> 5
 countVowels("")  -> 0
 */
 
-function countVowels(str) {
+const countVowels = (str) => {
     let count = 0;
     let i = 0;
     while(i < str.length){
@@ -70,7 +80,7 @@ function countVowels(str) {
 
 const {CharacterHelper} = require('../utils/CharacterHelper.js');
 
-function countVowels(str) {
+const countVowels = (str) => {
     let count = 0;
     let i = 0;
     while(i < str.length){
@@ -100,11 +110,11 @@ countConsonants("")  -> 0
 */
 const {CharacterHelper} = require('../utils/CharacterHelper.js');
 
-function countConsonants(str) {
+const countConsonants = (str) => {
     let count = 0;
     let i = 0;
     while(i < str.length){
-        if(!CharacterHelper.isVowel(str[i])) count++;
+        if(!(CharacterHelper.isVowel(str[i]))) count++;
         i++;
     }
     return count;
@@ -126,7 +136,7 @@ countWords("Cypress is an UI automation tool.    ") -> 6
 countWords("1 2 3 4") -> 4
 */
 
-function countWords(str) {
+const countWords = (str) => {
     let strArray = str.trim().split(" ");
     return strArray.length;
 } 
@@ -149,7 +159,7 @@ factorial(0) -> 1
 factorial(1) -> 1
 */
 
-function factorial(number) {
+const factorial = (number) => {
     let factorial = 1;
     for(let i = number; i > 1; i--){
         factorial *= i;
@@ -182,20 +192,19 @@ isPalindrome("")  -> true
 
 function isPalindrome(str) {
     let strLowerCase = str.toLowerCase();
-    let reverseStr = strLowerCase.split('').reverse().join('');
+    let reverseStrLowerCase = strLowerCase.split('').reverse().join('');
         
-        if(strLowerCase === reverseStr) return true;
-        else return false;
-        }
+        console.log(strLowerCase === reverseStrLowerCase);
+    }
   
-  console.log(isPalindrome("Hello")); 
-  console.log(isPalindrome("Kayak")); 
-  console.log(isPalindrome("civic"));  
-  console.log(isPalindrome("abba") ); 
-  console.log(isPalindrome("ab  a"));  
-  console.log(isPalindrome("123454321")); 
-  console.log(isPalindrome("A"));
-  console.log(isPalindrome(""));
+  isPalindrome("Hello"); 
+  isPalindrome("Kayak"); 
+  isPalindrome("civic");  
+  isPalindrome("abba") ; 
+  isPalindrome("ab  a");  
+  isPalindrome("123454321"); 
+  isPalindrome("A");
+  isPalindrome("");
 
   //Task - 8
   /*Requirement: 
@@ -212,7 +221,7 @@ countMultipleWords([ ]) -> 0
 function countMultipleWords(array) {
     let count = 0;
     for(const element of array){
-        if(element.trim().includes(' ')) count++;
+        if(element.trim().indexOf(' ') >= 0) count++;
     }
     return count;
 }
@@ -234,12 +243,12 @@ count3OrLess("My name is John Doe")  -> 3
 count3OrLess("")  -> 0
 */
 
-function count3OrLess(str) {
+const count3OrLess = (str) => {
     let count = 0;
-    strArr = str.trim().split(' ');
-    for(const word of strArr){
+    const strArr = str.trim().split(' ');
+    strArr.forEach(word => {
         if(word.length > 0 && word.length <= 3) count++;
-    }
+    });
     return count;
 }
 
@@ -379,6 +388,7 @@ findClosestTo10([0, -1, -2])  -> 0
     console.log(findClosestTo10([10, -13, 8, 12, 15, -20]));
     console.log(findClosestTo10([0, -1, -2]));
 
+
 // Task - 14
 /*Requirement: 
 Write a function named as isEmailValid() which takes a string email as an argument and returns true if the email is valid or 
@@ -403,3 +413,40 @@ isEmailValid("johndoe@@gmail.com")  -> false
 isEmailValid("johndoe@gmail.com")  -> true
 */
 
+
+
+//Task - 15
+/*Requirement: 
+Write a function named as isPasswordValid() which takes a string email as an argument and returns true if the password 
+is valid or returns false otherwise when invoked.
+NOTE: A VALID PASSWORD:
+•should have length of 8 to 16 (both inclusive).
+•should have at least 1 digit, 1 uppercase, 1 lowercase and 1 special char.
+•should NOT have any space.
+Examples:
+isPasswordValid("")  -> false
+isPasswordValid("abcd")  -> false
+isPasswordValid("abcd1234")  -> false
+isPasswordValid("Abcd1234")  -> false
+isPasswordValid("Chicago12345US!#$%")  -> false
+isPasswordValid("Abcd1234$")  -> true
+isPasswordValid("Chicago123$")  -> true
+isPasswordValid("Test1234#")  -> true
+*/
+const {CharacterHelper} = require('../utils/CharacterHelper.js');
+
+const isPasswordValid = string => {
+    let arrStr = string.split('');
+    console.log((arrStr.length >= 8 && arrStr.length <= 16 && arrStr.every(char => arrStr.indexOf(char) !== -1) &&
+        arrStr.some(char => CharacterHelper.isLowerCase(char)) && arrStr.some(char => CharacterHelper.isUpperCase(char)) &&
+        arrStr.some(char => CharacterHelper.isDigit(char)) && arrStr.some(char => CharacterHelper.isSpecial(char))));
+    }
+    
+isPasswordValid("");
+isPasswordValid("abcd");
+isPasswordValid("abcd1234");
+isPasswordValid("Abcd1234");
+isPasswordValid("Chicago12345US!#$%");
+isPasswordValid("Abcd1234$");
+isPasswordValid("Chicago123$");
+isPasswordValid("Test1234#");
