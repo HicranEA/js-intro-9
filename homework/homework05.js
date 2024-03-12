@@ -413,7 +413,22 @@ isEmailValid("johndoe@@gmail.com")  -> false
 isEmailValid("johndoe@gmail.com")  -> true
 */
 
-
+function isEmailValid(string) {
+        console.log(!(string.includes(" ")) 
+        && ((string.includes('@')) && (string.indexOf('@') === string.lastIndexOf('@'))) 
+        && ((string.includes('.')) && (string.indexOf('.') === string.lastIndexOf('.'))) 
+        && ((string.indexOf('@') >= 2) && (string.indexOf('.') < string.length - 2)) 
+        && (string.indexOf('@') < string.indexOf('.') - 2));
+}
+   
+    isEmailValid("");
+    isEmailValid("@gmail.com");
+    isEmailValid("johndoe@yahoo"); 
+    isEmailValid("johndoe@.com");  
+    isEmailValid("a@outlook.com"); 
+    isEmailValid("johndoe@a.com");
+    isEmailValid("johndoe@@gmail.com");
+    isEmailValid("johndoe@gmail.com");
 
 //Task - 15
 /*Requirement: 
