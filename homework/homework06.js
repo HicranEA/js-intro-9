@@ -39,7 +39,7 @@ const replaceFirstLast = (string) => {
     return string[string.length-1] + middle + string[0];
    };
    
-
+   
 console.log(replaceFirstLast(""));
 console.log(replaceFirstLast("Hello"));
 console.log(replaceFirstLast("Tech Global"));
@@ -93,7 +93,7 @@ const checkAge = (yearOfBirth) => {
    let currentYear = new Date().getFullYear();
    let age = currentYear - yearOfBirth;  
    if(age >= 0 && age < 16) return "AGE IS NOT ALLOWED";
-   else if(age >= 16 && age <120) return "AGE IS ALLOWED";
+   else if(age >= 16 && age <=120) return "AGE IS ALLOWED";
    else return "AGE IS NOT VALID";
 };
 
@@ -361,19 +361,20 @@ mostRepeated(["TechGlobal"])  -> "TechGlobal"
 const mostRepeated = (array) => {
     let highestCount = 0;
     let mostReptElement;
+       
     for(let i = 0; i < array.length; i++){
         let count = 0;
         for(let j = 0; j < array.length; j++){
             if(array[i] === array[j]) count++;
-        }
-        if(count > highestCount) {
+       }
+        if(count > highestCount){
         highestCount = count;
-        mostReptElement = array[i];
+        mostReptElement = array[i]; 
+        }
     }
-        return mostReptElement;
-    }
+    
+   return mostReptElement; 
 }
-
 
 console.log(mostRepeated([4, 7, 4, 4, 4, 23, 23, 23]));
 console.log(mostRepeated(["pen", "pencil", "pen", "123", "abc", "pen", "pencil"]));

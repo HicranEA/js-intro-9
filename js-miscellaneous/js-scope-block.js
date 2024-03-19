@@ -30,4 +30,4 @@ console.log(b); // undefined as it is hoisted
 
 // console.log(a); // ReferenceError: a is not defined
 console.log(b); // 1
-// console.log(c); // ReferenceError: c is not defined
+// console.log(c); // ReferenceError: c is not define

@@ -65,5 +65,6 @@ class Cat {
       return old;
   });
   
+  
   console.log('Oldest', oldest);
   console.log('Oldest', oldest2);

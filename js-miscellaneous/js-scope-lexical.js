@@ -8,7 +8,7 @@ function outer() {
 
     // Outer function cannot access the variables in the inner function
     // console.log(upper); // ReferenceError: upper is not defined
-
+    console.log(upper);
     inner();
 }
 

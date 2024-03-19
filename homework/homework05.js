@@ -46,7 +46,7 @@ countA("QA stands for Quality Assurance")  -> 5
 countA("Cypress")  -> 0
 */
 
-const countA = (str) => {
+/*const countA = (str) => {
     let count = 0;
     let strA = str.toUpperCase();
     for(let i = 0; i < strA.length; i++) {
@@ -54,6 +54,7 @@ const countA = (str) => {
     }
     return count;
 }
+*/
 
 const countA = (str) => {
     let count = 0;
