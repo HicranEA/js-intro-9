@@ -50,7 +50,8 @@ let count = 1;
 
 while(true) {
     console.log('Hello', count);
-    if(count++ === 5) break;
+    if(count === 5) break;
+    count++;
 }
 
 

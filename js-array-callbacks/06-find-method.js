@@ -51,4 +51,3 @@ console.log(cities.find(el => el.length === 7)); // undefined
 console.log(cities.findLast(el => el.length === 7)); // undefined
 console.log(cities.findIndex(el => el.length === 7)); // -1
 console.log(cities.findLastIndex(el => el.length === 7)); // -1
-

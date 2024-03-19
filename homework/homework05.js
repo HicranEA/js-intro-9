@@ -17,14 +17,19 @@ function countPos(array) {
     return count;
 }
 
+// Solution with filter() method
+
+const countPos = (array) => {
+    return array.filter((number) => number > 0).length;
+}
 // Solution with reduce() method
 function countPos(array) {
     return array.reduce((count, number) => number > 0 ? count + 1 : count, 0);
 }
  //Function with arrow function
-const countPos = (array) => {
-    return array.reduce((count, number) => number > 0 ? count + 1 : count, 0);
-}
+const countPos = (array) => array.reduce((count, number) => number > 0 ? count + 1 : count, 0);
+
+console.log(countPos);
 
 console.log(countPos([-45, 0, 0, 34, 5, 67])); 
 console.log(countPos([-23, -4, 0, 2, 5, 90, 123]));
@@ -50,6 +55,15 @@ const countA = (str) => {
     return count;
 }
 
+const countA = (str) => {
+    let count = 0;
+   for(char of str){
+    if(char.toLowerCase() ==='a')
+    count++
+   }
+   return count;
+}
+
 console.log(countA("TechGlobal is a QA bootcamp"))  
 console.log(countA("QA stands for Quality Assurance"));
 console.log(countA("Cypress"));
@@ -66,7 +80,7 @@ countVowels("JavaScript is fun")  -> 5
 countVowels("")  -> 0
 */
 
-const countVowels = (str) => {
+const countVowel = (str) => {
     let count = 0;
     let i = 0;
     while(i < str.length){
@@ -108,13 +122,11 @@ countConsonants("Hello World")  -> 8
 countConsonants("JavaScript is fun")  -> 12
 countConsonants("")  -> 0
 */
-const {CharacterHelper} = require('../utils/CharacterHelper.js');
-
 const countConsonants = (str) => {
     let count = 0;
     let i = 0;
     while(i < str.length){
-        if(!(CharacterHelper.isVowel(str[i]))) count++;
+        if(!('aeoui'.includes(str[i].toLowerCase()))) count++;
         i++;
     }
     return count;
@@ -275,13 +287,19 @@ isPrime(0) -> false
 isPrime(1) -> false
 */
 
-function isPrime(number) {
-    if ((number > 1) && ((number === 2 || number === 3 || number === 5 || number === 7) ||
-    (number % 2 !== 0 && number % 3 !== 0 && number % 5 !== 0 && number % 7 !== 0))) return true;
-    else return false;
-}
+const isPrime = (number) => {
+   if(number < 2) return false;
+   if(number === 2 || number === 3) return true; 
+   if(number % 2 === 0 || number % 3 ===0) return false;
+    
+   for(let i = 5; i < number; i += 2) {
+        if(number % i === 0) return false;
+   };
+   
+   return true;
+};
 
-console.log(isPrime(5));
+console.log(isPrime(4));
 console.log(isPrime(2));
 console.log(isPrime(29));
 console.log(isPrime(-5));
@@ -320,7 +338,7 @@ all extra spaces removed when invoked.
 Examples:
 removeExtraSpaces("Hello")  -> "Hello" 
 removeExtraSpaces("      Hello    World     ")  -> "Hello World" 
-removeExtraSpaces("     JavaScript is          fun")  -> "JavaScript is fun”
+removeExtraSpaces("     JavaScript is          fun")  -> "JavaScript is fun"
 removeExtraSpaces("")  -> ""
 */
 
@@ -358,6 +376,7 @@ findClosestTo10([0, -1, -2])  -> 0
         let minDiff = Math.abs(closestTo10 - 10);
 
         for(let i = 1; i < arr.length; i++){
+        if(arr[i] === 10 ) continue;
         if(minDiff === 0 || Math.abs(arr[i] - 10) < minDiff){
             closestTo10 = arr[i];
             minDiff = Math.abs(arr[i] - 10);
@@ -365,7 +384,7 @@ findClosestTo10([0, -1, -2])  -> 0
         }
         return closestTo10;
     }
-       
+        
    console.log(findClosestTo10([10, -13, 5, 70, 15, 57] ));
    console.log(findClosestTo10([10, -13, 8, 12, 15, -20]));
    console.log(findClosestTo10([0, -1, -2]));
@@ -383,7 +402,7 @@ findClosestTo10([0, -1, -2])  -> 0
         else if((indexOf10 === 0) || (Math.abs(arrSorted[indexOf10 + 1] - 10) < (Math.abs(arrSorted[indexOf10 - 1] - 10))))
         return arrSorted[indexOf10 + 1];
     }
-  
+
     console.log(findClosestTo10([10, -13, 5, 70, 15, 57] ));
     console.log(findClosestTo10([10, -13, 8, 12, 15, -20]));
     console.log(findClosestTo10([0, -1, -2]));
@@ -395,7 +414,7 @@ Write a function named as isEmailValid() which takes a string email as an argume
 returns false otherwise when invoked.
 NOTE: A VALID EMAIL:
 •should NOT have any space.
-•should not have more than one “@” character.
+•should not have more than one "@" character.
 •should be in the given format 
 <2+chars>@<2+chars>.<2+chars> meaning
 •There should be at least characters before @ character.
@@ -450,8 +469,8 @@ isPasswordValid("Test1234#")  -> true
 */
 const {CharacterHelper} = require('../utils/CharacterHelper.js');
 
-const isPasswordValid = string => {
-    let arrStr = string.split('');
+const isPasswordValid = (password) => {
+    let arrStr = password.split('');
     console.log((arrStr.length >= 8 && arrStr.length <= 16 && arrStr.every(char => arrStr.indexOf(char) !== -1) &&
         arrStr.some(char => CharacterHelper.isLowerCase(char)) && arrStr.some(char => CharacterHelper.isUpperCase(char)) &&
         arrStr.some(char => CharacterHelper.isDigit(char)) && arrStr.some(char => CharacterHelper.isSpecial(char))));

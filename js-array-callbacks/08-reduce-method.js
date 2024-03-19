@@ -81,8 +81,17 @@ min([1, 2, 3, -2])          -> -2
 min([-5, -2])               -> -5
 */
 
-const arr = [1, 2, 3, -2];
+function min(arr) {
+    if(arr.length === 0) throw Error('This array is empty!!!');
 
+    return arr.reduce((min, number) => {
+        if(number < min) return number;
+        return min;
+    });
+};
+
+console.log(min([0, 3, -9,  5, 8]));
+console.log(min([-2, 0, -7, 10, -5]));
 
 const min = arr.reduce((min, number) => {
    if(arr.length === 0) throw Error('This array is empty!!!');
@@ -90,4 +99,4 @@ const min = arr.reduce((min, number) => {
 });
 
 
-console.log(min);
+
