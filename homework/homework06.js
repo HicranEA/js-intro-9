@@ -14,6 +14,10 @@ const noSpace = (string) => {
     return string.trim().split('').filter(char => char !== ' ').join('');
 };
 
+const noSpace = (string) => {
+    return string.trim().split(' ').join(' ');
+}
+
 console.log(noSpace("Javascript"));
 console.log(noSpace("    Hello   "));
 console.log(noSpace(" Hello World   "));
@@ -234,12 +238,13 @@ removeDuplicates(["1", "2", "3", "2", "3"])  -> ["1", "2", "3"]
 
 const removeDuplicates = (array) => {
     let newArray = [];
-    for(const element of array){
-        if ((array.indexOf(element) === array.lastIndexOf(element))) newArray.push(element);
-        if((array.indexOf(element) !== array.lastIndexOf(element)) && !(newArray.includes(element))) newArray.push(element);
+    for(const element of array){     
+        if(!(newArray.includes(element))) newArray.push(element);
     }
     return newArray;
 }
+
+const removeDuplicates = (array) => array.reduce((result, x) => !(result.includes(x)) ? result.concat(x) : result, []);
 
 console.log(removeDuplicates([10, 20, 35, 20, 20, 20, 20, 35, 60, 70, 60, 60, 60]));
 console.log(removeDuplicates([1, 2, 5, 2, 3]));
@@ -267,12 +272,12 @@ isDateFormatValid("10/02/2020 ")  -> true
 const isDateFormatValid = (string) => {
     if(string.length !== 10) return false;
 
-    let beginning = string.split('/')[0];
-    let middle = string.split('/')[1];
-    let end = string.split('/')[2];
+    let month= string.split('/')[0];
+    let day = string.split('/')[1];
+    let year = string.split('/')[2];
 
-    if(beginning.length !== 2 || middle.length !== 2 || end.length !== 4) return false;
-    if((beginning >= 1 && beginning <= 12) && (middle >= 1 && middle <= 31) && (end >= 0 && end <= 9999)) return true;
+    if(month.length !== 2 || day.length !== 2 || year.length !== 4) return false;
+    if((Number(month) >= 1 && Number(month) <= 12) && (Number(day)>= 1 && Number(day) <= 31)) return true;
     return false;
     
 };

@@ -48,3 +48,9 @@ for(const entry of Object.entries(car)) {
 for(const [key, value] of Object.entries(car)) {
     console.log(key, value);
 }
+/*
+color red
+year 2023
+make BMW
+model X7
+*/

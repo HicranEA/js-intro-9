@@ -11,7 +11,7 @@ console.log(year);
 const student_template = {
     program: 'Software Engineer in Test',
     start_date: 'January 22, 2024',
-    batch: 9
+    batch: 9,
 };
 
 const student_rabe = {
