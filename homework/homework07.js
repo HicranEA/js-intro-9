@@ -69,7 +69,7 @@ no13([13, 13, 13 , 13, 13])  -> [0, 0, 0, 0, 0]
 no13([])  -> []
 */
 
-const no13 = (array) => array.map(x => (x === 13) ? x = 0 : x)
+const no13 = (array) => array.map(x => (x === 13) ? x = 0 : x);
 
 console.log(no13([1, 2, 3 ,4]));
 console.log(no13([13, 2, 3]));
@@ -111,6 +111,14 @@ sumOfDigits("")  -> 0
 */
 
 const sumOfDigits = (string) => string.split('').reduce((sum, x) => (x >= 0 && x <= 9) ? sum + Number(x) : sum, 0);
+
+/*const sumOfDigits = (string) => {
+ return string.split('').reduce((sum, x) => {
+    if (x >= 0 && x <= 9) return sum + Number(x);
+    else return sum;
+ }, 0);
+}
+*/
    
 
 console.log(sumOfDigits("Javascript"));
@@ -157,9 +165,9 @@ categorizeCharacters("12ab$%3c%")  -> [ 'abc', '123', '$%%' ]
 
 const categorizeCharacters = (string) => {
     let array = string.split('');
-    let letters = "";
-    let digits = "";
-    let specials = "";
+    let letters = '';
+    let digits = '';
+    let specials = '';
         for (const x of array){
         if(x.toLowerCase() >= 'a' && x.toLowerCase() <= 'z') letters = letters.concat(x);
         else if(x >= 0 && x <= 9) digits = digits.concat(x);
@@ -172,4 +180,3 @@ const categorizeCharacters = (string) => {
 console.log(categorizeCharacters("1234")); 
 console.log(categorizeCharacters("abc123$#%"));
 console.log(categorizeCharacters("12ab$%3c%"));
-

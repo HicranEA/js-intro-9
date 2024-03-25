@@ -10,13 +10,9 @@ noSpace(" Hello World   ")  -> "HelloWorld”
 noSpace("Tech Global")  -> "TechGlobal"
 */
 
-const noSpace = (string) => {
-    return string.trim().split('').filter(char => char !== ' ').join('');
-};
+const noSpace = (string) => string.trim().split('').filter(char => char !== ' ').join('');
 
-const noSpace = (string) => {
-    return string.trim().split(' ').join(' ');
-}
+//const noSpace = (string) => string.trim().split(' ').join(' ');
 
 console.log(noSpace("Javascript"));
 console.log(noSpace("    Hello   "));
@@ -243,8 +239,8 @@ const removeDuplicates = (array) => {
     }
     return newArray;
 }
-
-const removeDuplicates = (array) => array.reduce((result, x) => !(result.includes(x)) ? result.concat(x) : result, []);
+//Solution with reduce() method
+//const removeDuplicates = (array) => array.reduce((result, x) => !(result.includes(x)) ? result.concat(x) : result, []);
 
 console.log(removeDuplicates([10, 20, 35, 20, 20, 20, 20, 35, 60, 70, 60, 60, 60]));
 console.log(removeDuplicates([1, 2, 5, 2, 3]));

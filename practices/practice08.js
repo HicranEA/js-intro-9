@@ -39,6 +39,7 @@ console.log(author1.getFullName());
 for(const book of author1.getBooks()) {
     console.log(book);
 }
+
 */
 
 // TASK-PART-4
@@ -72,7 +73,13 @@ const author1 = new Author('George R. R.', 'Martin', 'United States', [book1, bo
 
 console.log(author1.getFullName());
 
-for(const book of author1.getBooks()){
+for(const book of author1.getBooks()){ //prints books iterated
     console.log(book);
 }
 
+
+author1.getBooks().forEach(book => { // using the forEach method
+    console.log(book);
+});
+
+console.log(author1.getBooks()); // prints books as an array
