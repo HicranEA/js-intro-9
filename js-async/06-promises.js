@@ -23,12 +23,8 @@ const age = new Promise((resolve, reject) => {
 
 
 // Promise handling 
-age.then((data) => {
-    console.log(data);
-}).catch((error) => {
-    console.log(error);
-})
-
+age.then((data) => console.log(data))
+    .catch((error) => console.log(error));
 
 const triple = new Promise((resolve, reject) => {
     const number = 5;

@@ -260,11 +260,12 @@ firstDuplicate([ 1, 2, 3]) -> -1
 firstDuplicate([ 'foo', 'abc', '123', 'bar’ ])  -> -1
 */
 
-function firstDuplicate(arr1){
-    for(const num of arr1)
+function firstDuplicate(arr1) {
+    for(const num of arr1) {
        if(arr1.indexOf(num) !== arr1.lastIndexOf(num)) return num;
-       return -1;
-}     
+    }
+    return -1;
+}    
 
 console.log(firstDuplicate([ 3, 7, 10, 0, 3, 10 ]));
 console.log(firstDuplicate([ 5, 7, 7, 0, 5, 10 ]));

@@ -29,7 +29,7 @@ noDigit("123Tech456Global149")  -> "TechGlobal"
 */
 
 
-const noDigit = (string) => string.split('').filter(x => (x === ' ') || !(x >=0 && x<= 9)).join('');
+const noDigit = (string) => string.split('').filter(x => (x === ' ') || !(x >= '0' && x <= '9')).join('');
   
 console.log(noDigit(""));
 console.log(noDigit("Javascript"));
@@ -88,7 +88,7 @@ middleInt(1, 1, 1)  -> 1
 middleInt(-1, 25, 10)  -> 10
 */
 const middleInt = (num1, num2, num3) => {
-    array = [num1, num2, num3];
+    let array = [num1, num2, num3];
     array.sort((a, b) => a - b);
     return array[1];
 }
@@ -110,7 +110,7 @@ sumOfDigits("$125.0")  -> 8
 sumOfDigits("")  -> 0
 */
 
-const sumOfDigits = (string) => string.split('').reduce((sum, x) => (x >= 0 && x <= 9) ? sum + Number(x) : sum, 0);
+const sumOfDigits = (string) => string.split('').reduce((sum, x) => (x >= '0' && x <= '9') ? sum + Number(x) : sum, 0);
 
 /*const sumOfDigits = (string) => {
  return string.split('').reduce((sum, x) => {
@@ -137,15 +137,13 @@ arrFactorial([5 , 0, 6])  -> [120, 1, 720]
 arrFactorial([])  -> []
 */
 
-const arrFactorial = (array) => {
-    return array.map(x => {
+const arrFactorial = (array) => array.map(num => {
         let factorial = 1;
-        for(i = 1; i <= x; i++){
+        for(let i = 2; i <= num; i++){
             factorial *= i;
         }
         return factorial;
     });
-}
 
 console.log(arrFactorial([1, 2, 3 ,4]));
 console.log(arrFactorial([0, 5]));
@@ -164,14 +162,13 @@ categorizeCharacters("12ab$%3c%")  -> [ 'abc', '123', '$%%' ]
 */
 
 const categorizeCharacters = (string) => {
-    let array = string.split('');
     let letters = '';
     let digits = '';
     let specials = '';
-        for (const x of array){
-        if(x.toLowerCase() >= 'a' && x.toLowerCase() <= 'z') letters = letters.concat(x);
-        else if(x >= 0 && x <= 9) digits = digits.concat(x);
-        else specials = specials.concat(x);
+        for (const char of string){
+        if(char.toLowerCase() >= 'a' && char.toLowerCase() <= 'z') letters += char;
+        else if(char >= '0' && char <= '9') digits += char;
+        else if (char !== ' ') specials += char;
      };
      let result = [letters, digits, specials];
      return result;

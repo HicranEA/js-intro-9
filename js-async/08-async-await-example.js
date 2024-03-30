@@ -73,22 +73,3 @@ async function party2() {
 
 party1();
 party2();
-
-
-
-
-
-
-
-/*async function test2 () {
-    try {
-        await Program.gotoApp();
-        await Program.clickOnButton();
-        await Program.closeApp();
-    } catch(err) {
-        console.log(err);
-    }
-}
-
-test2();
-*/

@@ -149,10 +149,7 @@ countWords("Cypress is an UI automation tool.    ") -> 6
 countWords("1 2 3 4") -> 4
 */
 
-const countWords = (str) => {
-    let strArray = str.trim().split(" ");
-    return strArray.length;
-} 
+const countWords = (str) => str.trim().split(" ").length;
 
 console.log(countWords("     Javascript is fun       "))
 console.log(countWords("Cypress is an UI automation tool.    "));
@@ -348,7 +345,7 @@ function removeExtraSpaces(str) {
     strExtraSpacesRemoved = "";
     for(const word of strArr){
         if (word !== '') 
-        strExtraSpacesRemoved = strExtraSpacesRemoved.concat(' ', word);
+        strExtraSpacesRemoved += `${word} `;
     }
     
     return strExtraSpacesRemoved;

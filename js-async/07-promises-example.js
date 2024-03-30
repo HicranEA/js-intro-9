@@ -35,9 +35,9 @@ const { Program } = require("./../utils/Program.js");
 // async await handling 
 async function test2 () {
     try {
-        await Program.gotoApp();
-        await Program.clickOnButton();
-        await Program.closeApp();
+        console.log(await Program.gotoApp());
+        console.log(await Program.clickOnButton());
+        console.log(await Program.closeApp());
     } catch(err) {
         console.log(err);
     }
