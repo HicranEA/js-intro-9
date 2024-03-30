@@ -204,6 +204,14 @@ const noXInVariables = (array) => {
     return array.join(' ').split('').filter(char => char.toLowerCase() !== 'x').join('').split(' ').filter(x => x !== '');
 }
 
+const noXInVariables = (array) => {
+    const array2 = [];
+    for(let i = 0; i < array.length; i++) {
+      array2.push(array[i].toString().split('').filter(x => x.toLowerCase() !== 'x').join(''));
+    }
+      return array2.filter(x => x);
+}
+
 console.log(noXInVariables(["abc", 123, "#$%"]));
 console.log(noXInVariables(["xyz", 123, "#$%"]));
 console.log(noXInVariables(["x", 123, "#$%"]));
