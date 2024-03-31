@@ -61,6 +61,7 @@ const numberAndSquare = (array) => array.map(x => [x, x**2]);
 //loop
 const numberAndSquare = (array) => {
     const multiDimArr = [];
+    
     for(let i = 0; i < array.length; i++) {
         multiDimArr[i] = [array[i], array[i] ** 2];
     }
@@ -209,7 +210,7 @@ const noXInVariables = (array) => {
     for(let i = 0; i < array.length; i++) {
       array2.push(array[i].toString().split('').filter(x => x.toLowerCase() !== 'x').join(''));
     }
-      return array2.filter(x => x);
+      return array2.map(x => isNaN(x) ? x : Number(x)).filter(x => x !== 0);
 }
 
 console.log(noXInVariables(["abc", 123, "#$%"]));
