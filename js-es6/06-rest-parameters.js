@@ -63,3 +63,6 @@ function favActs(top, ...rest) {
 }
 
 favActs('Coding', 'Reading', 'Biking', 'Playing PS5');
+
+
+

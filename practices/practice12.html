@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        nav {
+            border: 1px solid;
+            color: aliceblue;
+            background-color: black;
+            margin-bottom: 10px;
+            padding: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-width: 100%;
+            border-style: solid;
+            border: 1px solid #000;
+            padding: 10px;
+            border-collapse: collapse;
+        }
+
+        th,
+        td,
+        tr {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #000;
+            color: white;
+        }
+
+        div {
+            border: 1px solid black;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <h1>My Portfolio</h1>
+        <p style="font-size:large;">About Projets Contact</p>
+    </nav>
+    <h2>About Me</h2>
+    <p>This is where you can write a brief desription about yourself.</p>
+    <table>
+        <tr>
+            <th>Skill</th>
+            <th> Proficiency</th>
+        </tr>
+        <tr>
+            <td>HTML</td>
+            <td>Intermediate</td>
+        </tr>
+        <tr>
+            <td>CSS</td>
+            <td>Intermediate</td>
+        </tr>
+        <tr>
+            <td>JavaScript</td>
+            <td>Beginner</td>
+        </tr>
+    </table>
+    <br><br><br>
+    <h2>Projects</h2>
+    <div>
+        <p style=" font-size: large;"> <b>Project Title 1</b><br><br> Description of Project 1.</p>
+    </div><br>
+    <div>
+        <p style=" font-size: large;"> <b>Project Title 2</b><br><br>Description of Project 2.</p>
+    </div>
+    <br><br><br>
+    <form>
+        <h2>Contact Me</h2>
+        <label for="fname">Name:</label><br>
+        <input type="text" id="fname" name="fname" /><br><br>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" /><br><br>
+        <label for="comment">Message:</label><br><br>
+        <textarea cols="200" rows="10" id="comment"></textarea>
+        <p>Do you like my page?</p>
+        <label>Yes
+            <input type="radio" name="liked" checked />
+        </label>
+        <label>No
+            <input type="radio" name="liked" />
+        </label>
+        <p><button type="submit">Send</button></p>
+    </form>
+</body>
+
+</html>

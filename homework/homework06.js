@@ -163,7 +163,7 @@ no3and5([10, 11, 12, 13, 14, 15])  -> [99, 11, 100, 13, 14, 101]
 //Solution with map() method
 const no3and5 = (numArray) => {
  return numArray.map(x => {
-        if(x % 15 === 0) return 101;
+        if(x % 3 === 0 && x % 5 === 0) return 101;
         if(x % 5 === 0) return 99;
         if(x % 3 === 0) return 100;
         else return x;

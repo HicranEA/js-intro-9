@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register | TechGlobal School</title>
+  <style>
+    form {
+      max-width: 600px;
+      margin: 10px auto;
+      background-color: blue;
+      color: aliceblue;
+    }
+
+    form label {
+      font-style: italic;
+      margin: 25%;
+    }
+
+    form input,
+    select {
+      box-sizing: content-box;
+      margin-left: 25%;
+      width: 50%;
+      height: 25px;
+      border: solid;
+      padding: 5px;
+      text-align: left;
+    }
+
+    h1,
+    form h2,
+    p {
+      text-align: center;
+    }
+  </style>
+
+</head>
+
+<body>
+  <h1>Register Today</h1>
+
+  <!-- <form action="https://aws.com" method="POST"> -->
+  <form>
+    <fieldset>
+      <h2>APLICATION FORM</h2>
+      <label for="fname">First Name*</label><br>
+      <input type="text" id="fname" name="fname" placeholder="First Name" /><br><br>
+      <label for="lname">Last Name*</label><br>
+      <input type="text" id="lname" name="lname" placeholder="Last Name" /><br><br>
+      <label for="email">Email*</label><br>
+      <input type="email" id="email" placeholder="abc@mail.com" /><br><br>
+      <label for="phone">Phone*</label><br>
+      <input type="phone" id="phone" /><br><br>
+      <label>Select Program*</label> <br>
+      <select>
+        <option value="01">Software Engineer in Test(SDET)</option>
+        <option value="02">Cypress Automation with JavaScript</option>
+        <option value="03">Playwrigth Automation with JavaScript</option>
+      </select><br><br>
+      <label>Program Type*</label><br>
+      <div>
+        <select>
+          <option value="04">In-person</option>
+          <option value="05">Online</option>
+        </select><br><br>
+      </div>
+      <label>English Fluency*</label><br>
+      <div>
+        <select>
+          <option value="06">Beginner</option>
+          <option value="07">Intermediate</option>
+          <option value="07">Advanced</option>
+          <option value="07">Fluent</option>
+        </select><br><br>
+      </div>
+      <label>How did you hear about us?*</label> <br>
+      <div>
+        <select>
+          <option value="08">Google Search</option>
+          <option value="09">Referral</option>
+          <option value="10">Social Media</option>
+        </select><br><br>
+      </div>
+      <!-- <button type="submit">Submit</button> -->
+      <p><button type="submit" />SUBMIT</button></p>
+    </fieldset>
+  </form>
+</body>
+
+</html>

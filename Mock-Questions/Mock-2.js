@@ -820,4 +820,178 @@ const noA = (array) => array.map(element => element[0].toLowerCase() === 'a' ? '
 console.log(noA(["javascript", "hello", "123", "xyz"]));
 console.log(noA(["apple", "123", "ABC", "javascript"]));
 console.log(noA(["apple", "abc", "ABC", "Alex", "A"]));
+
+//No Elements Divisible By 3 and 5 
+/*
+Write a function named no3and5() which takes an array of integer numbers as argument and 
+will return a new array with elements replaced by conditions below. 
+If element can be divided by 5, replace it with 99 
+If element can be divided by 3, replace it with 100 
+If element can be divided by both 3 and 5, replace it with 101 
  
+Examples: 
+no3and5([7, 4, 11, 23, 17])       -> [7, 4, 11, 23, 17] 
+no3and5([3, 4, 5, 6])       -> [100, 4, 99, 100] 
+no3and5([10, 11, 12, 13, 14, 15])     -> [99, 11, 100, 13, 14, 101] 
+*/
+
+const no3and5 = (array) => {
+    return array.map(number => {
+        if(number % 15 === 0) return 101;
+        else if(number % 3 === 0) return 100;
+        else if(number % 5 === 0) return 99;
+        else return number;
+    });
+}
+
+console.log(no3and5([7, 4, 11, 23, 17]));
+console.log(no3and5([3, 4, 5, 6])); 
+console.log(no3and5([10, 11, 12, 13, 14, 15]));
+
+//No Elements Equals 13 
+/*Write a function named no13() which takes an array of numbers as argument and return a new 
+array with all 13s replaced with 0s.  
+ 
+Examples: 
+no13([1, 2, 3 ,4])       -> [1, 2, 3 ,4]  
+no13([13, 2, 3])       -> [0, 2, 3] 
+no13([13, 13, 13 , 13, 13])     -> [0, 0, 0, 0, 0] 
+no13([])         -> []
+*/
+
+const no13 = (array) => array.map(number => number === 13 ? 0 : number);
+
+const no13 = (array) => {
+    const newArray = [];
+    for(const number of array) {
+        if(number === 13) newArray.push(0);
+        else newArray.push(number);
+    }
+    return newArray;
+}
+
+console.log(no13([1, 2, 3 ,4]));
+console.log(no13([13, 2, 3]));
+console.log(no13([13, 13, 13 , 13, 13]));
+console.log(no13([]));
+
+//Remove Duplicates 
+/*Write a function named removeDuplicates() which takes an array argument and returns a new 
+array with all the duplicates removed. 
+ 
+Examples: 
+removeDuplicates([10, 20, 35, 20, 35, 60, 70, 60])      -> [10, 20, 35, 60, 70] 
+removeDuplicates([1, 2, 5, 2, 3])           -> [1, 2, 5, 3] 
+removeDuplicates([0, -1, -2, -2, -1])         -> [0, -1, -2] 
+removeDuplicates(["abc", "xyz", "123", "ab", "abc", "ABC"]) -> ["abc", "xyz", "123", "ab", "ABC"] 
+removeDuplicates(["1", "2", "3", "2", "3"])         -> ["1", "2", "3"]
+*/
+
+const removeDuplicates = (array) => {
+    const arrayNoDuplicates = [];
+    for(const el of array) {
+        if(!arrayNoDuplicates.includes(el)) arrayNoDuplicates.push(el);
+    }
+    return arrayNoDuplicates;
+}
+
+const removeDuplicates = (array) => array.reduce((result, el) => !(result.includes(el)) ? result.concat(el): result, [])
+
+console.log(removeDuplicates([10, 20, 35, 20, 35, 60, 70, 60])) 
+console.log(removeDuplicates([1, 2, 5, 2, 3]));
+console.log(removeDuplicates([0, -1, -2, -2, -1]));
+console.log(removeDuplicates(["abc", "xyz", "123", "ab", "abc", "ABC"]));
+console.log(removeDuplicates(["1", "2", "3", "2", "3"]));
+
+//No Digits 
+/*Write a function named noDigit() which takes a string argument and returns a new string with 
+all digits removed from the original string. 
+ 
+Examples: 
+noDigit("")           -> "" 
+noDigit("Javascript")       -> "Javascript" 
+noDigit("123Hello")         -> "Hello" 
+noDigit("123Hello World149")     -> "Hello World” 
+noDigit("123Tech456Global149")     -> "TechGlobal" 
+*/
+
+const noDigit = (string) => string.split('').filter(x => x >= '0' && x <= '9' ? "" : x).join('');
+
+const noDigit = (string) => string.split('').filter(x => x < '0' || x > '9').join('');
+
+console.log(noDigit(""));
+console.log(noDigit("Javascript"));
+console.log(noDigit("123Hello"));
+console.log(noDigit("123Hello World149"));
+console.log(noDigit("123Tech456Global149"));
+
+//No Vowel 
+/*Write a function named noVowel() which takes a string argument and returns a new string 
+with all vowels removed from the original string. 
+ 
+Examples: 
+noVowel("TechGlobal")   -> "TchGlbl" 
+noVowel("AEOxyz")   -> "xyz" 
+noVowel("Javascript")   -> "Jvscrpt" 
+noVowel("")   -> "" 
+noVowel("125$")   -> "125$"
+*/
+
+const noVowel = (string) => string.split('').filter(x => !'aeoui'.includes(x.toLowerCase())).join('');
+
+console.log(noVowel("TechGlobal"));
+console.log(noVowel("AEOxyz")); 
+console.log(noVowel("Javascript"));
+console.log(noVowel(""));
+console.log(noVowel("125$"));
+
+//Sum Of Digits 
+/*Write a function named sumOfDigits() which takes a string argument and returns sum of all 
+digits from the original string.  
+ 
+Examples: 
+sumOfDigits("Javascript")       -> 0 
+sumOfDigits("John’s age is 29")     -> 11 
+sumOfDigits("$125.0")       -> 8 
+sumOfDigits("")         -> 0
+*/
+
+const sumOfDigits = (string) => string.split('').reduce((sum, x) => x >= '0' && x <= '9' ? sum + Number(x) : sum, 0);
+
+console.log(sumOfDigits("Javascript"));
+console.log(sumOfDigits("John's age is 29")); 
+console.log(sumOfDigits("$125.0"));
+console.log(sumOfDigits(""));
+
+//Array Factorial 
+/*Write a function named arrFactorial() which takes an array of numbers as argument and return 
+the array with every number replaced with their factorials. 
+ 
+Examples: 
+arrFactorial([1, 2, 3 ,4])     -> [1, 2, 6, 24] 
+arrFactorial([0, 5])       -> [1,120] 
+arrFactorial([5 , 0, 6])     -> [120, 1, 720] 
+arrFactorial([])       -> [] 
+ */
+
+const arrFactorial = (array) => array.map(num => {
+    let factorial = 1;
+    for(let i = 2; i <= num; i++) {
+        factorial *= i;
+    }
+    return factorial;
+});
+
+ //recursion
+ const factorial = (num) => {
+    if(num === 0 || num === 1) return 1;
+    else return num * factorial(num - 1);
+ }
+
+ 
+ const arrFactorial = (array) => array.map(num => factorial(num));
+
+console.log(arrFactorial([1, 2, 3 ,4]));
+console.log(arrFactorial([0, 5]));
+console.log(arrFactorial([5 , 0, 6]))
+console.log(arrFactorial([]));

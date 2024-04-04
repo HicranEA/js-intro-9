@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        form {
+            text-align: center;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #C7C7C7;
+            border-radius: 5px;
+            background-color: #6495ED;
+        }
+        form legend {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        form div {
+            margin-bottom: 10px;
+        }
+        form label {
+            display: block;
+            margin-bottom: 5px;
+        }
+    </style>
+</style>
+</head>
+<body>
+    <form>
+        <legend >Contact Form</legend>
+        <div>
+            <label for="fname">First Name</label>
+            <div><input type="text" ></div>
+            <div>
+                <label for="fname">Last Name</label>
+            <div><input type="text" ></div>
+            </div>
+            <div>
+                <label for="fname">Email</label>
+            <div><input type="text" ></div>
+            </div>
+            <div>
+                    <label for="fluency">English Fluency Level</label>
+                    <select id="fluency" name="fluency" required>
+                        <option value="Beginner">Beginner</option>
+                        <option value="Intermediate">Intermediate</option>
+                        <option value="Advanced">Advanced</option>
+                    </select>
+            </div>
+            <div>
+                <label for="fname">Program Type</label>
+            <div><input type="text" ></div>
+            <div>
+                <label for="program">Select Program</label>
+                <select id="program" name="program" required>
+                    <option value="Batch 01">Batch 01</option>
+                    <option value="Batch 02">Batch 02</option>
+                    <option value="Batch 03">Batch 03</option>
+                </select>
+            </div>
+            <div>
+                <label for="program-type">Program Type</label>
+                <select id="program-type" name="program-type" required>
+                    <option value="Type 01">Type 01</option>
+                    <option value="Type 02">Type 02</option>
+                    <option value="Type 03">Type 03</option>
+                </select>
+            </div>
+            <div>
+                <label for="fluency">English Fluency Level</label>
+                <select id="fluency" name="fluency" required>
+                    <option value="Beginner">Beginner</option>
+                    <option value="Intermediate">Intermediate</option>
+                    <option value="Advanced">Advanced</option>
+                </select>
+            </div>
+            <div>
+                <label for="hear-about">How did you hear about us?</label>
+                <select id="hear-about" name="hear-about" required>
+                    <option value="Word of Mouth">Word of Mouth</option>
+                    <option value="Online Search">Online Search</option>
+                    <option value="Social Media">Social Media</option>
+                    <option value="Advertisement">Advertisement</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+        </div>
+        <button>SUBMIT</button>
+    </form>
+</body>
+</html>
