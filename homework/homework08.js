@@ -201,10 +201,6 @@ noXInVariables(["x", 123, "#$%"])  -> [123, "#$%"]
 noXInVariables(["xyXyxy", "Xx", "ABC"])  -> ["yyy", "ABC"]
 */
 
-/*const noXInVariables = (array) => {
-    return array.join(' ').split('').filter(char => char.toLowerCase() !== 'x').join('').split('').filter(x => x !== '');
-}
-*/
 const noXInVariables = (array) => {
     const array2 = [];
     for(let i = 0; i < array.length; i++) {
