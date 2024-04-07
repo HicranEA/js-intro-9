@@ -79,7 +79,7 @@ const findSumNumbers = (string) => string.replace(/\D/g, " ").split(" ").reduce(
 
 console.log(findSumNumbers("abc$"))
 console.log(findSumNumbers("a1b4c  6#"));
-console.log(findSumNumbers("ab110c045d"));
+console.log(findSumNumbers("ab110c045d".replace(/\D/g, " ")));
 console.log(findSumNumbers("525"));
 console.log(findSumNumbers("3 for 10 dollars"));
 
