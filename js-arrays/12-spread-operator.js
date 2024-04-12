@@ -21,6 +21,6 @@ const nums1_15 = [ 1, 2, 3, 4, ...nums, 12, 13, 14, 15 ];
 const studentsBatch9Group1 = [ 'Alex', 'Max', 'Rabe' ];
 const studentsBatch9Group2 = [ 'James', 'Ameer', 'Niko' ];
 
-const allStudents = [ ...studentsBatch9Group1,  ...studentsBatch9Group2 ];
+const allStudents = [...studentsBatch9Group1, ...studentsBatch9Group2];
 
 console.log(allStudents);

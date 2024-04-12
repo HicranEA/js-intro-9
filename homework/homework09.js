@@ -79,7 +79,7 @@ const findSumNumbers = (string) => string.replace(/\D/g, " ").split(" ").reduce(
 
 console.log(findSumNumbers("abc$"))
 console.log(findSumNumbers("a1b4c  6#"));
-console.log(findSumNumbers("ab110c045d".replace(/\D/g, " ")));
+console.log(findSumNumbers("ab110c045d");
 console.log(findSumNumbers("525"));
 console.log(findSumNumbers("3 for 10 dollars"));
 
@@ -97,6 +97,16 @@ findBiggestNumber("3 for 10 dollars")  -> 10
 
 const findBiggestNumber = (string) => {
     return string.replace(/\D/g, " ").split(" ").reduce((max, x) => Math.max(max, Number(x)), 0);
+}
+
+const findBiggestNumber = (str) => {
+    let str1 = '';
+    for(const ele of str) {
+        if(ele >= 0 && ele <= 9) str1+= ele;
+        else str1 += ' '
+    }
+    const str2 = str1.split(' ')
+    return Math.max(...str2);
 }
 
 console.log(findBiggestNumber("abc$"));
