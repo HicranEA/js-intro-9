@@ -11,11 +11,12 @@ doubleOrTripleWord(" ")       -> " "
 doubleOrTripleWord("1")       -> "11" 
 doubleOrTripleWord("22")       -> "222222" 
 */
-
 const doubleOrTripleWord = (string) => {
     if(string.length % 2 === 0) return string.repeat(3); // or string + string +string // string.concat(string, string)
     else return string.repeat(2);    
 }
+
+const doubleOrTripleWord = (str) => (str.length % 2 === 0) ? str.repeat(3) : str.repeat(2);
 
 console.log(doubleOrTripleWord("Tech")); 
 console.log(doubleOrTripleWord("Apple"));
@@ -36,18 +37,26 @@ firstLastWord("Hello")       -> "HelloHello"
 firstLastWord("")         -> "" 
 firstLastWord("  ")       -> "" 
 */
+const firstLastWord = (string) => {
+    let arr = string.trim().split(' ');
+    return arr[0] + arr[arr.length - 1];
+}
 
-/*const firstLastWord = (string) => {
+const firstLastWord = (string) => {
       let array = string.trim().split(" ");
       return array[0].concat(array.at(-1));
     }
-    */
 
 const firstLastWord = (string) => {
         str = string.trim();
         if(str.includes(" ")) return str.slice(0, str.indexOf(" ")) + str.slice(str.lastIndexOf(" ") + 1);
         else return str + str;
     }
+
+    const firstLastWord = (string) => {
+        const array = string.trim().split(' ');
+        return array[0] + array.slice(-1);
+      }
 
 
 console.log(firstLastWord("    Hello World"));
@@ -66,14 +75,12 @@ Examples:
 hasVowel("")        -> false 
 hasVowel("Javascript")     -> true 
 hasVowel("Tech Global")     -> true 
-hasVowel("1234")       -> false (
+hasVowel("1234")       -> false 
 hasVowel("ABC")       -> true
 */
+const hasVowel = (string) => string.toLowerCase().split('').filter(x => 'aeiou'.includes(x)).length > 0;
 
-const hasVowel = (string) => {
-    let array = string.toLowerCase().split('');
-    return array.filter(x => 'aeiou'.includes(x)).length > 0;
-}
+const hasVowel = (string) => string.toLowerCase().split('').some(x => 'aeuoi'.includes(x));
 
 console.log(hasVowel(""))
 console.log(hasVowel("Javascript"))
@@ -95,11 +102,8 @@ startVowel("  ")     -> false
 startVowel("123")     -> false
 */
 
-const startVowel = (string) => {
-    return 'aeiouAEIOU'.includes(string[0]);
+const startVowel = (string) => 'aeiouAEIOU'.includes(string[0]);
     
-}
-
 console.log(startVowel("Hello"));
 console.log(startVowel("Apple"));
 console.log(startVowel("orange"));
@@ -147,10 +151,17 @@ replaceFirstLast("    A      ")      -> ""
 
 const replaceFirstLast = (string) => {
     let str = string.trim();
-    if(str.length > 2) return str.at(-1) + str.slice(1, - 1) + str.at(0);
+    if(str.length >= 2) return str[str.length - 1] + str.slice(1, - 1) + str[0];
     else return "";
 }
 
+const replaceFirstLast = string => {
+    let str = string.trim();
+    if(str.length < 2) return "";
+    else return str[str.length - 1] + str.slice(1, -1) + str[0];
+  }
+
+ 
 console.log(replaceFirstLast(""));
 console.log(replaceFirstLast("Hello"));
 console.log(replaceFirstLast("Tech Global"));
@@ -224,7 +235,6 @@ countPos([-45, 0, 0, 34, 5, 67])     -> 3
 countPos([-23, -4, 0, 2, 5, 90, 123])   -> 4 
 countPos([0, -1, -2, -3])  -> 0
 */
-
 const countPos = (arrayNum) => arrayNum.filter(x => x > 0).length;
 
 const countPos = (arrayNum) => {
@@ -293,6 +303,7 @@ const getMultipleOf5 = (num1, num2) => {
         }
         return (num1 > num2) ? arrayDivBy5.reverse() : arrayDivBy5;
     }
+
 
 console.log(getMultipleOf5(3, 17));
 console.log(getMultipleOf5(23, 5));
@@ -396,7 +407,6 @@ const factorial = (number) => {
     else return number * factorial(number - 1);
 }
 
-
 console.log(factorial(5));    
 console.log(factorial(4));    
 console.log(factorial(0));    
@@ -435,6 +445,8 @@ console.log(count3OrLess("JavaScript is fun"));
 console.log(count3OrLess("My name is John Doe")); 
 console.log(count3OrLess(""));
 
+
+
 //Remove Extra Spaces 
 /*Write a function named as removeExtraSpaces() which takes a string word as an argument 
 and returns the string back with all extra spaces removed when invoked. 
@@ -445,7 +457,6 @@ removeExtraSpaces("    Hello    World  ")       -> "Hello World"
 removeExtraSpaces("   JavaScript is        fun")    -> "JavaScript is fun” 
 removeExtraSpaces("")             -> "" 
 */
-
 const removeExtraSpaces = (string) => string.trim().split(' ').filter(word => word !== '').join(' ');
 
 const removeExtraSpaces = (str) => {
@@ -456,7 +467,6 @@ const removeExtraSpaces = (str) => {
     }
     return strExtraSpacesRemoved;
 }
-
 
 console.log(removeExtraSpaces("Hello"));
 console.log(removeExtraSpaces("    Hello    World  "));
@@ -475,13 +485,19 @@ middleInt(1, 1, 1)     -> 1
 middleInt(-1, 25, 10)   -> 10
 */
 
-const middleInt = (num1, num2, num3) => [num1, num2, num3].sort((a,b) => a - b)[1];
+const middleInt = (num1, num2, num3) => [num1, num2, num3].sort((a, b) => a - b)[1];
 
 const middleInt = (num1, num2, num3) => {
     if(num1 >= num2 && num1 <= num3) return num1;
     else if(num2 >= num1 && num2 <= num3) return num2;
     else return num3;
 }
+
+const middleInt = (num1, num2, num3) => {
+    let array = [num1, num2, num3].sort((a, b) => a - b);
+    return array[1];
+  } 
+
 
 console.log(middleInt(1, 2, 2));
 console.log(middleInt(5, 5, 8));
@@ -604,7 +620,6 @@ const reverseStringWords = (string) => {
     return strArray.join(' ');
 }
 
-
 console.log(reverseStringWords("Hello World")); 
 console.log(reverseStringWords("I like JavaScript"));
 console.log(reverseStringWords("Hello")); 
@@ -651,6 +666,8 @@ countMultipleWords([ "foo", "bar", "foobar", "   foobar   " ])     -> 0
 countMultipleWords([ "f o o", "b a r", "foo bar", "     foo bar   " ])     -> 4 
 countMultipleWords([ ]) -> 0
 */
+
+const countMultipleWords = (array) => array.filter(x => x.trim().includes(' ')).length;
 
 const countMultipleWords = (array) => array.filter(element => element.trim().indexOf(' ') > 0).length;
 
@@ -727,8 +744,12 @@ isPalindrome("123454321")   -> true
 isPalindrome("A")   -> true 
 isPalindrome("")   -> true 
 */
-
 const isPalindrome = (string) => string.toLowerCase() === string.toLowerCase().split('').reverse().join('');
+
+const isPalindrome = (string) => {
+    let revString = string.trim().split('').reverse().join('');
+    return string.toLowerCase() === revString.toLowerCase();
+  }
  
 console.log(isPalindrome("Hello"));
 console.log(isPalindrome("Kayak"));
@@ -768,6 +789,16 @@ const isPrime = (number) => {
     return true;
 }
 
+const isPrime = (number) => {
+    if(number < 2) return false;
+    else if(number === 2 || number === 3) return true;
+    else if(number % 2 === 0 || number % 3 === 0) return false;
+    else for(i = 5; i < number; i += 2) {
+          if(number % i === 0) return false;
+    }
+    return true;
+  }
+
 console.log(isPrime(5));
 console.log(isPrime(2)); 
 console.log(isPrime(29)); 
@@ -797,6 +828,14 @@ const add = (arr1, arr2) => {
     return [...arr3, ...longArray.slice(shortArrSize)]; // arr3.concat(longArray.slice(end))
 }
 
+   const add = (arr1, arr2) => {
+    let longArr = Math.max(arr1.length, arr2.length);
+    const newArr = [];
+      for(let i = 0; i < longArr; i++ ){
+      newArr.push((arr1[i] || 0) + (arr2[i] || 0))
+    }
+    return newArr;
+  }
 
 console.log(add([3, 0, 0, 7, 5, 10], [6, 3, 2]));      
 console.log(add([10, 3, 6, 3, 2], [6, 8, 3, 0, 0, 7, 5, 10, 34]));
@@ -835,14 +874,23 @@ no3and5([3, 4, 5, 6])       -> [100, 4, 99, 100]
 no3and5([10, 11, 12, 13, 14, 15])     -> [99, 11, 100, 13, 14, 101] 
 */
 
-const no3and5 = (array) => {
-    return array.map(number => {
+const no3and5 = (array) => array.map(number => {
         if(number % 15 === 0) return 101;
         else if(number % 3 === 0) return 100;
         else if(number % 5 === 0) return 99;
         else return number;
     });
-}
+
+const no3and5 = array => {
+    const newArr = [];
+    for(const x of array){
+      if(x % 3 === 0 && x % 5 === 0) newArr.push(101);
+      else if(x % 3 === 0) newArr.push(100);
+      else if(x % 5 === 0) newArr.push(99);
+      else newArr.push(x);
+    }
+    return newArr;
+  }
 
 console.log(no3and5([7, 4, 11, 23, 17]));
 console.log(no3and5([3, 4, 5, 6])); 
@@ -857,7 +905,6 @@ no13([1, 2, 3 ,4])       -> [1, 2, 3 ,4]
 no13([13, 2, 3])       -> [0, 2, 3] 
 no13([13, 13, 13 , 13, 13])     -> [0, 0, 0, 0, 0] 
 no13([])         -> []
-*/
 
 const no13 = (array) => array.map(number => number === 13 ? 0 : number);
 
@@ -869,6 +916,7 @@ const no13 = (array) => {
     }
     return newArray;
 }
+*/
 
 console.log(no13([1, 2, 3 ,4]));
 console.log(no13([13, 2, 3]));
@@ -895,7 +943,7 @@ const removeDuplicates = (array) => {
     return arrayNoDuplicates;
 }
 
-const removeDuplicates = (array) => array.reduce((result, el) => !(result.includes(el)) ? result.concat(el): result, [])
+const removeDuplicates = (array) => array.reduce((result, el) => !(result.includes(el)) ? result.concat(el): result, []);
 
 console.log(removeDuplicates([10, 20, 35, 20, 35, 60, 70, 60])) 
 console.log(removeDuplicates([1, 2, 5, 2, 3]));
@@ -915,7 +963,7 @@ noDigit("123Hello World149")     -> "Hello World”
 noDigit("123Tech456Global149")     -> "TechGlobal" 
 */
 
-const noDigit = (string) => string.split('').filter(x => x >= '0' && x <= '9' ? "" : x).join('');
+const noDigit = (string) => string.split('').filter(x => !(x >= '0' && x <= '9') ).join('');
 
 const noDigit = (string) => string.split('').filter(x => x < '0' || x > '9').join('');
 
@@ -939,6 +987,8 @@ noVowel("125$")   -> "125$"
 
 const noVowel = (string) => string.split('').filter(x => !'aeoui'.includes(x.toLowerCase())).join('');
 
+const noVowel = string => string.split('').filter(x => !'AEIOUaeiou'.includes(x)).join('');
+
 console.log(noVowel("TechGlobal"));
 console.log(noVowel("AEOxyz")); 
 console.log(noVowel("Javascript"));
@@ -957,6 +1007,15 @@ sumOfDigits("")         -> 0
 */
 
 const sumOfDigits = (string) => string.split('').reduce((sum, x) => x >= '0' && x <= '9' ? sum + Number(x) : sum, 0);
+
+const sumOfDigits = string => {
+    let sum = 0;
+    const array = string.split('');
+    for(const x of array){
+        if(x >= '0' && x <= '9') sum += Number(x);
+    }
+    return sum;
+}
 
 console.log(sumOfDigits("Javascript"));
 console.log(sumOfDigits("John's age is 29")); 
@@ -982,16 +1041,19 @@ const arrFactorial = (array) => array.map(num => {
     return factorial;
 });
 
+
  //recursion
- const factorial = (num) => {
+ /*const factorial = (num) => {
     if(num === 0 || num === 1) return 1;
     else return num * factorial(num - 1);
  }
-
+*/
  
- const arrFactorial = (array) => array.map(num => factorial(num));
+ //const arrFactorial = (array) => array.map(num => factorial(num));
 
 console.log(arrFactorial([1, 2, 3 ,4]));
 console.log(arrFactorial([0, 5]));
 console.log(arrFactorial([5 , 0, 6]))
 console.log(arrFactorial([]));
+
+

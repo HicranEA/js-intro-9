@@ -29,6 +29,7 @@ let sum = 0;
    return sum;
 }
 
+
 console.log(calculateTotalPrice1({ apple: 3, mango: 1 }));
 console.log(calculateTotalPrice1({ apple: 2, pineapple: 1, orange: 3 }));
 console.log(calculateTotalPrice1({ apple: 0, mango: 0, orange: 0 }));
@@ -233,4 +234,3 @@ console.log(splitString("Java", 2));
 console.log(splitString("Automation", 3));
 console.log(splitString("Hello", 6));
 console.log(splitString("12", 1));
-
