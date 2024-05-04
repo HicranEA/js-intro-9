@@ -226,7 +226,7 @@ splitString("Hello", 6)  -> ""
 splitString("12", 1)  -> "1 2"
 */
 
-const splitString = (string, number) => string.length % number === 0 ? string.split(string[number - 1]).join(string[number - 1] + " ") : "";
+const splitString = (string, number) => string.length > number && string.length % number === 0 ? string.split(string[number - 1]).join(string[number - 1] + " ") : "";
 
 
 console.log(splitString("JavaScript", 5));

@@ -1008,7 +1008,7 @@ sumOfDigits("")         -> 0
 
 const sumOfDigits = (string) => string.split('').reduce((sum, x) => x >= '0' && x <= '9' ? sum + Number(x) : sum, 0);
 
-const sumOfDigits = string => {
+/*const sumOfDigits = string => {
     let sum = 0;
     const array = string.split('');
     for(const x of array){
@@ -1016,6 +1016,7 @@ const sumOfDigits = string => {
     }
     return sum;
 }
+*/
 
 console.log(sumOfDigits("Javascript"));
 console.log(sumOfDigits("John's age is 29")); 
