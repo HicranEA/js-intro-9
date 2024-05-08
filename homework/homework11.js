@@ -235,18 +235,8 @@ const countOccurrence = (str1, str2) => {
     const str1Arr = str1.toLowerCase().split(' ').join('').split('');
     const str2Arr = str2.toLowerCase().split(' ').join('').split('');
     
-    const str3Arr = [];
-
+}
   
-        for(const x of str1Arr) {
-            if(str2Arr.includes(x)) str3Arr.push(x);   
-        } 
-
-        for()
-      
-      
-          }
-
 console.log(countOccurrence("Javascript", "Java"));
 console.log(countOccurrence("Hello", "World"));
 console.log(countOccurrence("Can I can a can", "anc"));
