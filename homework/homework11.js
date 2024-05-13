@@ -237,7 +237,7 @@ const countOccurrence = (str1, str2) => {
     for(char of str2){
       arrOfOccurrences.push(str1.split('').filter(c => c.toLowerCase() === char.toLowerCase()))
     }
-    return arrOfOccurrences.sort()
+    return arrOfOccurrences.sort();
   
 }
   
