@@ -232,9 +232,13 @@ countOccurrence("IT conversations", "IT")   -> 2
 */
 
 const countOccurrence = (str1, str2) => {
-    const str1Arr = str1.toLowerCase().split(' ').join('').split('');
-    const str2Arr = str2.toLowerCase().split(' ').join('').split('');
-    
+    let arrOfOccurrences = []
+  
+    for(char of str2){
+      arrOfOccurrences.push(str1.split('').filter(c => c.toLowerCase() === char.toLowerCase()))
+    }
+    return arrOfOccurrences.sort()
+  
 }
   
 console.log(countOccurrence("Javascript", "Java"));
