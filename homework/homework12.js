@@ -58,7 +58,7 @@ decimal2( [ ] )  -> [  ]
 decimal2( [4.35623, 8.9742] )  -> [ 4.36, 8.97 ]
 */
 
-const decimal2 = (array) => array.map(x => x.toFixed(2));
+const decimal2 = (arr) => arr.map(x => x == x.toFixed(2) ? x : x.toFixed(2))
 
 console.log(decimal2( [94.356, 8.9752] ));
 console.log(decimal2( [76.62, 128.4, 84] ));
@@ -88,13 +88,10 @@ const myPow = (x, n) => {
 
     let pow = 1;
 
-    if(n === 0) return 1;
-    //else if(n === 1) return x;
-    else {
     for(let i = 1; i <= n; i++) {
         pow *= x;
     }
-}
+
     return pow;
 }
 
