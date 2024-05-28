@@ -43,7 +43,7 @@ sayHi.apply(person2, [ person2.fname, person2.lname ]);
 
 
 function info() {
-    const age = new Date().getFullYear() - this.dateOfYear;
+    const age = ().getFullYear() - this.dateOfYear;
 
     return `${this.fullname} is ${age} years old and lives at ${this.address}.`;
 }
