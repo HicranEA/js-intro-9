@@ -282,7 +282,15 @@ const isPowerOf3 = (number) => {
     return false;
 }
 
-console.log(isPowerOf3(1));
+/*const isPowerOf3 = (num) => {
+    if(num === 1) return true
+    if(num < 1) return false
+
+    return isPowerOf3(num / 3);
+}
+*/
+
+console.log(isPowerOf3(12));
 console.log(isPowerOf3(2));
 console.log(isPowerOf3(3));
 console.log(isPowerOf3(27));

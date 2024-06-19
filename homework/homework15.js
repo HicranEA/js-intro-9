@@ -138,7 +138,7 @@ console.log(isNeutral("-++-", "-+-+"));
 console.log(isNeutral("--++--", "++--++"));
 console.log(isNeutral("+++", "+++"));
 
-// Task 5
+// Task - 5
 /*
 Requirement:
 Write a function named isTrueOrFalse() which takes a string with sets of character/words 
